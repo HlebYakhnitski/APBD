@@ -10,7 +10,6 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-// Define endpoints for Animal operations
 app.MapGet("/animals", () => DataStore.Animals);
 app.MapGet("/animals/{id}", (int id) => 
     DataStore.Animals.FirstOrDefault(a => a.Id == id));
@@ -40,7 +39,6 @@ app.MapDelete("/animals/{id}", (int id) =>
     return Results.Ok();
 });
 
-// Define endpoints for Visit operations
 app.MapGet("/visits/{animalId}", (int animalId) => 
     DataStore.Visits.Where(v => v.AnimalId == animalId).ToList());
 
