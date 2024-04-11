@@ -48,6 +48,6 @@ app.MapPost("/visits", (Visit visit) =>
 {
     DataStore.Visits.Add(visit);
     return Results.Created($"/visits/{visit.Id}", visit);
-});
+ });
 
 app.Run();
